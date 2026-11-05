@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akshay Kashyap | Senior Drupal Front-End Developer</title>
+<meta name="description" content="Senior Drupal Front-End Developer with 6+ years of experience building responsive, accessible, high-performance websites on Drupal 8/9/10/11 and WordPress.">
+<meta name="theme-color" content="#0a0a1a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Akshay Kashyap | Senior Drupal Front-End Developer">
+<meta property="og:description" content="Custom Drupal themes, Twig, Pattern Lab and pixel-perfect front-ends. 10+ Drupal projects delivered.">
+<meta property="og:url" content="https://akshaykashyap.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236c63ff'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='67' font-size='50' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a1a; --bg2:#0f0f24; --card:rgba(255,255,255,.045); --card-h:rgba(255,255,255,.075);
+  --line:rgba(255,255,255,.1); --ink:#f1f2fb; --muted:#a3a7c2; --dim:#6e7394;
+  --a1:#6c63ff; --a2:#22d3ee; --a3:#f472b6;
+  --grad:linear-gradient(120deg,var(--a1),var(--a2));
+  --head:'Sora','Segoe UI',system-ui,sans-serif;
+  --body:'Inter','Segoe UI',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--a2);outline-offset:3px;border-radius:8px}
+h1,h2,h3{font-family:var(--head);margin:0;letter-spacing:-.02em;line-height:1.15}
+p{margin:0 0 1em}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+section{padding:100px 0 0;position:relative}
+.sec-head{margin-bottom:44px}
+.sec-head h2{font-size:clamp(2rem,4vw,2.8rem);font-weight:800}
+.sec-head p{color:var(--muted);max-width:56ch;margin:12px 0 0}
+.bar{display:block;width:56px;height:4px;border-radius:4px;background:var(--grad);margin-top:16px}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:60}
+
+/* ambient background */
+.glow{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.glow i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.35}
+.glow i:nth-child(1){width:520px;height:520px;background:var(--a1);top:-160px;left:-120px}
+.glow i:nth-child(2){width:460px;height:460px;background:var(--a2);top:260px;right:-180px;opacity:.2}
+.glow i:nth-child(3){width:420px;height:420px;background:var(--a3);bottom:-160px;left:20%;opacity:.14}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 0,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 0,#000 20%,transparent 70%);opacity:.35}
+
+/* nav */
+header.top{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.top.scrolled{background:rgba(10,10,26,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:var(--head);font-weight:800;font-size:1.25rem;display:flex;align-items:center;gap:10px}
+.logo i{width:36px;height:36px;border-radius:11px;background:var(--grad);display:grid;place-items:center;font-style:normal;font-size:.95rem;color:#fff}
+nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+nav a{display:block;padding:8px 15px;border-radius:10px;font-size:.93rem;font-weight:500;color:var(--muted);transition:.2s}
+nav a:hover,nav a.on{color:#fff;background:var(--card-h)}
+.hire{padding:9px 18px;border-radius:10px;background:var(--grad);color:#fff;font-weight:600;font-size:.9rem}
+.burger{display:none;background:var(--card);border:1px solid var(--line);color:#fff;width:42px;height:42px;border-radius:11px;font-size:1.2rem;cursor:pointer}
+@media(max-width:860px){
+  .burger{display:block}.hire{display:none}
+  nav{position:fixed;top:70px;left:0;right:0;background:rgba(10,10,26,.97);border-bottom:1px solid var(--line);padding:14px 24px 22px;display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column}
+}
+
+/* hero */
+.hero{min-height:100vh;padding:130px 0 70px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.88rem;color:var(--muted);margin-bottom:26px}
+.pill b{width:9px;height:9px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 9px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+.hi{font-size:1.2rem;color:var(--muted);font-weight:500;margin-bottom:6px}
+h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800;letter-spacing:-.04em}
+.typed{font-family:var(--head);font-size:clamp(1.15rem,2.4vw,1.6rem);font-weight:600;margin:18px 0 22px;min-height:1.6em;color:#e5e7ff}
+.typed::after{content:"";display:inline-block;width:3px;height:1.1em;background:var(--a2);margin-left:4px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.sub{color:var(--muted);font-size:1.08rem;max-width:54ch}
+.btns{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 32px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:14px;font-weight:600;font-size:.98rem;border:1px solid var(--line);background:var(--card);transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-3px);background:var(--card-h)}
+.btn.primary{background:var(--grad);border-color:transparent;color:#fff;box-shadow:0 14px 34px -12px rgba(108,99,255,.8)}
+.btn.primary:hover{box-shadow:0 20px 40px -12px rgba(108,99,255,.95)}
+.btn svg{width:18px;height:18px;fill:currentColor}
+.social{display:flex;gap:12px}
+.social a{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);transition:.2s}
+.social a:hover{background:var(--grad);border-color:transparent;transform:translateY(-3px)}
+.social svg{width:20px;height:20px;fill:#fff}
+.social b{font-family:var(--head);font-size:1.05rem}
+
+/* avatar */
+.visual{position:relative;display:grid;place-items:center;min-height:420px}
+.ring{position:relative;width:min(340px,76vw);aspect-ratio:1;border-radius:50%;padding:6px;background:conic-gradient(from 0deg,var(--a1),var(--a2),var(--a3),var(--a1));animation:spin 14s linear infinite}
+.ring .face{width:100%;height:100%;border-radius:50%;background:var(--bg2);display:grid;place-items:center;overflow:hidden;position:relative;animation:spin 14s linear infinite reverse}
+.face img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.face span{font-family:var(--head);font-weight:800;font-size:6rem;letter-spacing:-.04em}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chipf{position:absolute;padding:10px 16px;border-radius:14px;background:rgba(20,20,46,.82);border:1px solid var(--line);backdrop-filter:blur(8px);font-family:var(--mono);font-size:.82rem;display:flex;align-items:center;gap:8px;animation:float 6s ease-in-out infinite;box-shadow:0 14px 30px -14px rgba(0,0,0,.7)}
+.chipf i{width:9px;height:9px;border-radius:50%}
+.chipf:nth-child(2){top:6%;left:-2%}
+.chipf:nth-child(3){top:22%;right:-4%;animation-delay:-1.5s}
+.chipf:nth-child(4){bottom:20%;left:-6%;animation-delay:-3s}
+.chipf:nth-child(5){bottom:5%;right:2%;animation-delay:-4.5s}
+@keyframes float{50%{transform:translateY(-12px)}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.visual{order:-1;min-height:360px}.hero{padding-top:110px}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:70px}
+.stat{padding:26px;border-radius:20px;background:var(--card);border:1px solid var(--line);text-align:center}
+.stat strong{display:block;font-family:var(--head);font-size:2.3rem;font-weight:800;line-height:1.1}
+.stat span{color:var(--muted);font-size:.9rem}
+@media(max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+
+/* about */
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
+.about p{color:var(--muted)}
+.about p:first-of-type{color:var(--ink);font-size:1.12rem}
+.info{display:grid;gap:14px}
+.info div{display:flex;gap:16px;align-items:center;padding:18px 20px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.info em{font-style:normal;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(108,99,255,.3),rgba(34,211,238,.2));font-size:1.3rem;flex:none}
+.info small{display:block;color:var(--dim);font-size:.8rem}
+.info b{font-weight:600;font-size:.98rem}
+@media(max-width:900px){.about{grid-template-columns:1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.skill{grid-column:span 2;padding:28px;border-radius:22px;background:var(--card);border:1px solid var(--line);transition:.25s}
+.skill:hover{background:var(--card-h);transform:translateY(-4px);border-color:rgba(108,99,255,.5)}
+.skill.big{grid-column:span 3}
+.skill .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.4rem;margin-bottom:16px;background:var(--grad)}
+.skill h3{font-size:1.18rem;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.82rem;padding:6px 13px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#d8daf2}
+@media(max-width:960px){.skills{grid-template-columns:1fr 1fr}.skill,.skill.big{grid-column:span 1}}
+@media(max-width:620px){.skills{grid-template-columns:1fr}}
+
+/* experience */
+.tl{position:relative;padding-left:38px}
+.tl::before{content:"";position:absolute;left:11px;top:8px;bottom:0;width:2px;background:linear-gradient(var(--a1),transparent)}
+.tl-item{position:relative}
+.tl-item::before{content:"";position:absolute;left:-36px;top:10px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:4px solid var(--a2);box-shadow:0 0 0 6px rgba(34,211,238,.15)}
+.job{padding:34px;border-radius:24px;background:var(--card);border:1px solid var(--line)}
+.job-h{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;margin-bottom:8px}
+.job h3{font-size:1.5rem}
+.date{font-family:var(--mono);font-size:.82rem;padding:6px 14px;border-radius:999px;background:rgba(108,99,255,.2);color:#cfcbff;align-self:flex-start}
+.co{color:var(--a2);font-weight:600;margin-bottom:22px}
+.job ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 34px}
+.job li{position:relative;padding-left:26px;color:var(--muted);font-size:.96rem}
+.job li::before{content:"";position:absolute;left:0;top:.62em;width:12px;height:12px;border-radius:4px;background:var(--grad);transform:rotate(45deg) scale(.7)}
+@media(max-width:860px){.job ul{grid-template-columns:1fr}}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.proj{border-radius:24px;background:var(--card);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:.28s}
+.proj:hover{transform:translateY(-6px);border-color:rgba(108,99,255,.55);box-shadow:0 26px 50px -28px rgba(108,99,255,.7)}
+.shot{height:150px;position:relative;background:linear-gradient(135deg,hsl(var(--h) 80% 48%),hsl(calc(var(--h) + 50) 85% 38%));padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between}
+.shot::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 0,rgba(255,255,255,.3),transparent 55%)}
+.dots{display:flex;gap:6px;position:relative;z-index:1}
+.dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.55)}
+.shot b{font-family:var(--head);font-size:1.7rem;font-weight:800;position:relative;z-index:1;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.role{position:absolute;right:16px;top:12px;z-index:1;font-size:.74rem;font-weight:600;padding:4px 12px;border-radius:999px;background:rgba(0,0,0,.3);backdrop-filter:blur(6px)}
+.pbody{padding:24px;display:flex;flex-direction:column;flex:1}
+.pbody h3{font-size:1.2rem;margin-bottom:4px}
+.meta{font-size:.82rem;color:var(--dim);margin-bottom:12px;font-family:var(--mono)}
+.pbody p{color:var(--muted);font-size:.95rem;margin-bottom:12px}
+.pbody ul{margin:0 0 16px;padding-left:18px;color:var(--muted);font-size:.9rem}
+.pbody li{margin-bottom:4px}
+.pfoot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.pfoot .chips .chip{font-family:var(--mono);font-size:.74rem;padding:4px 10px}
+.visit{font-weight:600;font-size:.9rem;color:var(--a2);white-space:nowrap}
+.visit:hover{text-decoration:underline}
+@media(max-width:860px){.projects{grid-template-columns:1fr}}
+
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.edu div{padding:28px;border-radius:22px;background:var(--card);border:1px solid var(--line)}
+.edu h3{font-size:1.15rem;margin-bottom:8px}
+.edu p{color:var(--muted);margin:0;font-size:.95rem}
+@media(max-width:760px){.edu{grid-template-columns:1fr}}
+
+/* contact */
+.cta{margin-top:100px;padding:64px 40px;border-radius:32px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#4a41e8,#6c63ff 45%,#16b5d3);box-shadow:0 40px 80px -40px rgba(108,99,255,.9)}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 0,rgba(255,255,255,.28),transparent 45%),radial-gradient(circle at 90% 100%,rgba(244,114,182,.35),transparent 45%)}
+.cta>*{position:relative}
+.cta h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800;margin-bottom:14px}
+.cta p{max-width:52ch;margin:0 auto 30px;color:rgba(255,255,255,.9)}
+.cta .btns{justify-content:center;margin:0}
+.cta .btn{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);color:#fff}
+.cta .btn.white{background:#fff;color:#3b33d6;border-color:#fff}
+footer{padding:50px 0 60px;text-align:center;color:var(--dim);font-size:.9rem}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="glow" aria-hidden="true"><div class="grid-bg"></div><i></i><i></i><i></i></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="gh" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></symbol>
+  <symbol id="in" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45Z"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.2L4.6 7H4v.4l8 5.6 8-5.6V7h-.6L12 12.2Z"/></symbol>
+  <symbol id="dl" viewBox="0 0 24 24"><path d="M12 3a1 1 0 0 1 1 1v9.6l3.3-3.3 1.4 1.4-5 5a1 1 0 0 1-1.4 0l-5-5 1.4-1.4 3.3 3.3V4a1 1 0 0 1 1-1ZM5 19h14v2H5v-2Z"/></symbol>
+</svg>
+
+<header class="top" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Akshay Kashyap, home"><i>AK</i> Akshay</a>
+    <nav id="menu" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="hire" href="mailto:akshay95kashyap@gmail.com">Hire me</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="pill"><b></b> Available for new Drupal front-end roles</div>
+          <div class="hi">Hi, I’m</div>
+          <h1><span class="grad">Akshay Kashyap</span></h1>
+          <div class="typed" id="typed" aria-live="off">Senior Drupal Front-End Developer</div>
+          <p class="sub">I turn Figma and Adobe XD designs into fast, accessible and reusable Drupal themes. Six years of shipping websites for healthcare, research, education and non-profit teams.</p>
+          <div class="btns">
+            <a class="btn primary" href="Akshay_Kashyap_Resume.pdf" download><svg><use href="#dl"/></svg> Download resume</a>
+            <a class="btn" href="#projects">View my work</a>
+          </div>
+          <div class="social">
+            <a href="https://www.linkedin.com/in/akshay-kashayp-b5b66a91" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#in"/></svg></a>
+            <a href="https://github.com/Akshaykashyap" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#gh"/></svg></a>
+            <a href="https://www.drupal.org/u/akshay-kashyap" target="_blank" rel="noopener" aria-label="Drupal.org profile"><b>D</b></a>
+            <a href="mailto:akshay95kashyap@gmail.com" aria-label="Email"><svg><use href="#mail"/></svg></a>
+          </div>
+        </div>
+        <div class="visual">
+          <div class="ring"><div class="face"><span class="grad">AK</span><img src="profile.jpg" alt="Akshay Kashyap" onerror="this.remove()"></div></div>
+          <div class="chipf"><i style="background:#0678be"></i>Drupal 10 / 11</div>
+          <div class="chipf"><i style="background:#a3e635"></i>Twig</div>
+          <div class="chipf"><i style="background:#f472b6"></i>SCSS</div>
+          <div class="chipf"><i style="background:#22d3ee"></i>Pattern Lab</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong class="grad" data-count="6" data-suffix="+">6+</strong><span>Years in front-end</span></div>
+        <div class="stat"><strong class="grad" data-count="10" data-suffix="+">10+</strong><span>Drupal projects delivered</span></div>
+        <div class="stat"><strong class="grad" data-count="30" data-prefix="~" data-suffix="%">~30%</strong><span>Faster builds with reusable components</span></div>
+        <div class="stat"><strong class="grad">D8 → D11</strong><span>Theme migrations</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head rv"><h2>About me</h2><span class="bar"></span></div>
+      <div class="about">
+        <div class="rv">
+          <p>I’m a Senior Drupal Front-End Developer at Gai Technology in Dharamshala, working across Drupal 8, 9, 10 and 11 as well as WordPress.</p>
+          <p>I build custom themes from scratch and lead upgrades from Drupal 8 to 9, 10 and 11, with performance and accessibility at the centre of every release. I’m at my best where design meets Drupal’s content model: Views, Layout Builder, Paragraphs and custom blocks, styled with Twig, SCSS and Pattern Lab so editors get flexible layouts and visitors get a fast, consistent interface.</p>
+          <p>I’ve led front-end delivery on HEAL Security, NISO and Collaboration, and I contribute to the Drupal community through my Drupal.org profile.</p>
+        </div>
+        <div class="info rv">
+          <div><em>📍</em><span><small>Location</small><b>Dharamshala, Himachal Pradesh, India</b></span></div>
+          <div><em>🎓</em><span><small>Education</small><b>BCA, Himachal Pradesh University</b></span></div>
+          <div><em>🗣️</em><span><small>Languages</small><b>Hindi, English, Pahari</b></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head rv"><h2>Skills &amp; tools</h2><span class="bar"></span><p>What I use every day to ship Drupal front-ends.</p></div>
+      <div class="skills">
+        <div class="skill big rv"><div class="ic">💧</div><h3>Drupal</h3>
+          <div class="chips"><span class="chip">Drupal 8/9/10/11</span><span class="chip">Custom themes</span><span class="chip">Theme migration</span><span class="chip">Twig</span><span class="chip">Views</span><span class="chip">Layout Builder</span><span class="chip">Paragraphs</span><span class="chip">Custom blocks</span><span class="chip">Site building</span><span class="chip">GraphQL API</span><span class="chip">Theme contribution</span></div></div>
+        <div class="skill big rv"><div class="ic">🎨</div><h3>Front-end</h3>
+          <div class="chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">jQuery</span><span class="chip">AJAX</span><span class="chip">SASS/SCSS</span><span class="chip">LESS</span><span class="chip">Bootstrap</span><span class="chip">TailwindCSS</span><span class="chip">Flexbox</span><span class="chip">CSS Grid</span><span class="chip">ReactJS (basic)</span><span class="chip">NextJS (basic)</span></div></div>
+        <div class="skill rv"><div class="ic">🧩</div><h3>Practices</h3>
+          <div class="chips"><span class="chip">BEM</span><span class="chip">Atomic Design</span><span class="chip">Pattern Lab</span><span class="chip">Component-based</span><span class="chip">Mobile-first</span><span class="chip">Accessibility</span><span class="chip">Cross-browser testing</span><span class="chip">Figma to HTML</span></div></div>
+        <div class="skill rv"><div class="ic">🛠️</div><h3>Tools</h3>
+          <div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Bitbucket</span><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Redmine</span><span class="chip">DDEV</span><span class="chip">Lando</span><span class="chip">XAMPP</span><span class="chip">WordPress</span><span class="chip">PHP &amp; MySQL (basic)</span></div></div>
+        <div class="skill rv"><div class="ic">🤖</div><h3>AI tools</h3>
+          <div class="chips"><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">GitHub Copilot</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head rv"><h2>Experience</h2><span class="bar"></span></div>
+      <div class="tl">
+        <div class="tl-item rv">
+          <div class="job">
+            <div class="job-h"><h3>Senior Drupal Front-End Developer</h3><span class="date">Jul 2020 – Present</span></div>
+            <div class="co">Gai Technology · Dharamshala, India</div>
+            <ul>
+              <li>Build responsive, cross-browser UIs with HTML5, CSS3, JavaScript, SCSS and Twig for Drupal 8/9/10 and WordPress websites.</li>
+              <li>Create custom Drupal themes from scratch and lead theme upgrades from Drupal 8 to 9/10, focused on performance and accessibility.</li>
+              <li>Convert Figma and Adobe XD designs into scalable, accessible code; implemented Pattern Lab in Drupal 10 projects.</li>
+              <li>Structure dynamic content with Views, Layout Builder, Paragraphs and custom blocks, and integrate GraphQL APIs.</li>
+              <li>Led front-end development of HEAL Security and NISO (Drupal 10) with emphasis on performance and responsive design.</li>
+              <li>Delivered 10+ Drupal websites on tight deadlines, several in a lead role, alongside designers, backend developers and content teams.</li>
+              <li>Improved page load times and UI responsiveness by optimising code, reducing dependencies and applying asset-delivery best practices.</li>
+              <li>Built modular, reusable components shared across projects, reducing development time by about 30%.</li>
+              <li>Handle monthly maintenance and security updates for CARE India and Alfaisal University.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head rv"><h2>Selected projects</h2><span class="bar"></span><p>Lead and contributing front-end roles across healthcare, research, education and non-profit sites.</p></div>
+      <div class="projects">
+
+        <article class="proj rv"><div class="shot" style="--h:255"><span class="role">Front-End Developer</span><div class="dots"><i></i><i></i><i></i></div><b>HEAL Security</b></div>
+          <div class="pbody"><h3>Cybersecurity intelligence dashboard</h3><div class="meta">Drupal 9 · 2 years</div>
+            <p>A dashboard for healthcare security teams.</p>
+            <ul><li>Custom Bootstrap-based theme with custom Twig templates.</li><li>Integrated GraphQL API and drag-and-drop functionality.</li><li>Special pages with varied sidebars, headers and block styles.</li></ul>
+            <div class="pfoot"><div class="chips"><span class="chip">Twig</span><span class="chip">SCSS</span><span class="chip">jQuery</span></div><a class="visit" href="https://demo.healsecurity.net" target="_blank" rel="noopener">Visit site ↗</a></div></div></article>
+
+        <article class="proj rv"><div class="shot" style="--h:200"><span class="role">Lead Front-End</span><div class="dots"><i></i><i></i><i></i></div><b>NISO</b></div>
+          <div class="pbody"><h3>Information-standards organisation</h3><div class="meta">Drupal 10 · 1 month</div>
+            <p>Serving libraries, publishers and vendors.</p>
+            <ul><li>Led delivery of a fully responsive, cross-browser site.</li><li>Moved styling from Pattern Lab to Twig templates; built custom header and footer blocks.</li></ul>
+            <div class="pfoot"><div class="chips"><span class="chip">Twig</span><span class="chip">SCSS</span><span class="chip">Pattern Lab</span></div><a class="visit" href="https://niso.org" target="_blank" rel="noopener">Visit site ↗</a></div></div></article>
+
+        <article class="proj rv"><div class="shot" style="--h:320"><span class="role">Lead Front-End</span><div class="dots"><i></i><i></i><i></i></div><b>Collaboration</b></div>
+          <div class="pbody"><h3>Talent and events platform</h3><div class="meta">Drupal 8 · 1.5 years</div>
+            <p>A platform for talents, companies and organisations to share content and join events and projects.</p>
+            <ul><li>Custom Bootstrap theme with a customised Views slideshow and modals.</li><li>Responsive media pop-ups and jQuery sliders; Features module for deployment.</li></ul>
+            <div class="pfoot"><div class="chips"><span class="chip">Twig</span><span class="chip">jQuery</span><span class="chip">SCSS</span></div><a class="visit" href="https://5xpressions.art" target="_blank" rel="noopener">Visit site ↗</a></div></div></article>
+
+        <article class="proj rv"><div class="shot" style="--h:170"><span class="role">Front-End Developer</span><div class="dots"><i></i><i></i><i></i></div><b>TII Abu Dhabi</b></div>
+          <div class="pbody"><h3>Applied-research centre</h3><div class="meta">Drupal 8 · 6 months</div>
+            <p>Technology Innovation Institute, a leading research centre in the UAE.</p>
+            <ul><li>Paragraph layouts with custom templates and view modes.</li><li>Bootstrap-based theme with Grid and Flexbox layouts.</li></ul>
+            <div class="pfoot"><div class="chips"><span class="chip">Twig</span><span class="chip">SCSS</span><span class="chip">Bitbucket</span></div><a class="visit" href="https://tii.ae" target="_blank" rel="noopener">Visit site ↗</a></div></div></article>
+
+        <article class="proj rv"><div class="shot" style="--h:20"><span class="role">Front-End Developer</span><div class="dots"><i></i><i></i><i></i></div><b>Sesame Workshop India</b></div>
+          <div class="pbody"><h3>Non-profit behind Sesame Street</h3><div class="meta">Drupal 9 · 6 months</div>
+            <p>A playful, content-rich site for an education non-profit.</p>
+            <ul><li>Bootstrap-based theme with customised Views templates, content types and blocks.</li><li>jQuery pop-ups, tooltips and animations.</li></ul>
+            <div class="pfoot"><div class="chips"><span class="chip">Twig</span><span class="chip">jQuery</span><span class="chip">SCSS</span></div><a class="visit" href="https://sesameworkshopindia.org" target="_blank" rel="noopener">Visit site ↗</a></div></div></article>
+
+        <article class="proj rv"><div class="shot" style="--h:150"><span class="role">Front-End Developer</span><div class="dots"><i></i><i></i><i></i></div><b>Cellworks</b></div>
+          <div class="pbody"><h3>Precision oncology company</h3><div class="meta">Drupal 9 · 6 months</div>
+            <p>AI-enhanced precision oncology and drug development.</p>
+            <ul><li>Custom theme on stable9 with Paragraph layouts and custom templates.</li><li>Bootstrap grid system for responsive layouts.</li></ul>
+            <div class="pfoot"><div class="chips"><span class="chip">Twig</span><span class="chip">jQuery</span><span class="chip">SCSS</span></div><a class="visit" href="https://cellworks.life" target="_blank" rel="noopener">Visit site ↗</a></div></div></article>
+
+        <article class="proj rv"><div class="shot" style="--h:290"><span class="role">Front-End Developer</span><div class="dots"><i></i><i></i><i></i></div><b>ARBS</b></div>
+          <div class="pbody"><h3>Smart metering platform</h3><div class="meta">Drupal 8 · 1 year</div>
+            <p>Smart energy, water and gas metering solutions.</p>
+            <ul><li>Custom theme on Classy with responsive DataTables.</li><li>jQuery pop-ups and customised Views templates.</li></ul>
+            <div class="pfoot"><div class="chips"><span class="chip">Twig</span><span class="chip">SCSS</span><span class="chip">DDEV</span></div></div></div></article>
+
+        <article class="proj rv"><div class="shot" style="--h:350"><span class="role">Maintenance</span><div class="dots"><i></i><i></i><i></i></div><b>Alfaisal &amp; CARE India</b></div>
+          <div class="pbody"><h3>University and non-profit sites</h3><div class="meta">Drupal 8 · Ongoing</div>
+            <p>Academic site with OpenScholar integration, plus a non-profit site maintained for 3 consecutive years.</p>
+            <ul><li>Separate themes and faculty profile pages for each faculty.</li><li>Module security updates and monthly maintenance.</li></ul>
+            <div class="pfoot"><div class="chips"><span class="chip">Twig</span><span class="chip">SCSS</span></div></div></div></article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head rv"><h2>Education</h2><span class="bar"></span></div>
+      <div class="edu">
+        <div class="rv"><h3>Bachelor of Computer Applications (BCA)</h3><p>Govt. Degree College Dharamshala, Himachal Pradesh University, Shimla · 2015</p></div>
+        <div class="rv"><h3>Languages</h3><p>Hindi (advanced) · English (professional working) · Pahari (native)</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta rv">
+        <h2>Let’s build something great together</h2>
+        <p>I’m looking for my next Drupal front-end role. If you have a theme to build, a migration to lead or a design to bring to life, I’d love to hear from you.</p>
+        <div class="btns">
+          <a class="btn white" href="mailto:akshay95kashyap@gmail.com"><svg><use href="#mail"/></svg> akshay95kashyap@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/akshay-kashayp-b5b66a91" target="_blank" rel="noopener"><svg><use href="#in"/></svg> LinkedIn</a>
+          <a class="btn" href="Akshay_Kashyap_Resume.pdf" download><svg><use href="#dl"/></svg> Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Akshay Kashyap · Dharamshala, India</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.getElementById('nav'),bar=document.getElementById('progress');
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function onScroll(){
+    var y=window.scrollY,h=document.documentElement.scrollHeight-innerHeight;
+    nav.classList.toggle('scrolled',y>10);
+    bar.style.width=(h>0?y/h*100:0)+'%';
+    var cur=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<140)cur=i});
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur)});
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* mobile menu */
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){
+    var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o);
+  });
+  links.forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.setAttribute('aria-expanded','false')})});
+
+  /* reveal on scroll */
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    rv.forEach(function(el,i){el.style.transitionDelay=((i%4)*70)+'ms';io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in')})}
+
+  /* count up */
+  var cs=[].slice.call(document.querySelectorAll('[data-count]'));
+  function count(el){
+    var to=+el.dataset.count,p=el.dataset.prefix||'',s=el.dataset.suffix||'',t0=null;
+    function step(t){t0=t0||t;var k=Math.min((t-t0)/1200,1),v=Math.round(to*(1-Math.pow(1-k,3)));el.textContent=p+v+s;if(k<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window && !reduce){
+    var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);io2.unobserve(e.target)}})},{threshold:.6});
+    cs.forEach(function(c){io2.observe(c)});
+  }
+
+  /* typing roles */
+  var el=document.getElementById('typed');
+  if(!reduce){
+    var roles=['Senior Drupal Front-End Developer','Twig & SCSS Specialist','Pattern Lab / Atomic Design','Drupal 8 → 11 Theme Migrations'];
+    var r=0,c=0,del=false;
+    (function tick(){
+      var w=roles[r];
+      el.textContent=w.slice(0,c);
+      if(!del&&c<w.length){c++;setTimeout(tick,60)}
+      else if(!del){del=true;setTimeout(tick,1800)}
+      else if(c>0){c--;setTimeout(tick,28)}
+      else{del=false;r=(r+1)%roles.length;setTimeout(tick,300)}
+    })();
+  }
+})();
+</script>
+</body>
+</html>
